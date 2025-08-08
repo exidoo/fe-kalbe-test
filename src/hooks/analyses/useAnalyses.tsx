@@ -7,6 +7,42 @@ import Api from '@/services/api';
 // import js-cookie
 import Cookies from 'js-cookie';
 
+// Interface untuk data relasi Parameter
+export interface Parameter {
+  id: number;
+  created_by_id?: number | null;
+  created_on?: string | null;
+  last_updated_by_id?: number | null;
+  last_updated_on?: string | null;
+  is_active?: boolean | null;
+  code?: string | null;
+  description?: string | null;
+}
+
+// Interface untuk data relasi Method
+export interface Method {
+  id: number;
+  created_by_id?: number | null;
+  created_on?: string | null;
+  last_updated_by_id?: number | null;
+  last_updated_on?: string | null;
+  is_active?: boolean | null;
+  code?: string | null;
+  description?: string | null;
+}
+
+// Interface untuk data relasi Sample Type
+export interface SampleType {
+  id: number;
+  created_by_id?: number | null;
+  created_on?: string | null;
+  last_updated_by_id?: number | null;
+  last_updated_on?: string | null;
+  is_active?: boolean | null;
+  code?: string | null;
+  description?: string | null;
+}
+
 // Interface untuk data Analisis
 export interface Analyses {
   id: number;
@@ -21,13 +57,17 @@ export interface Analyses {
   parameter_id: number;
   method_id: number;
   sample_type_id: number;
+
+  parameter?: Parameter | null;
+  method?: Method | null;
+  sample_type?: SampleType | null;
 }
 
 /**
  * Hook untuk mengambil daftar semua data analisis.
  * Menggunakan useQuery dari React Query.
  */
-export const useGetAnalyses = () => {
+export const useAnalyses = () => {
   return useQuery<Analyses[], Error>({
     // query key yang unik untuk daftar analisis
     queryKey: ['analyses'],

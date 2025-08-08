@@ -1,5 +1,7 @@
-// import useMutation dari '@tanstack/react-query'
-import { useMutation } from '@tanstack/react-query';
+'use client';
+
+// import useMutation dan useQueryClient dari '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 // import service API
 import Api from '@/services/api';
@@ -7,8 +9,10 @@ import Api from '@/services/api';
 // import js-cookie
 import Cookies from 'js-cookie';
 
+// import toast dari 'react-hot-toast'
+import toast from 'react-hot-toast';
+
 // interface untuk request data
-// Menghilangkan field yang di-generate otomatis oleh server (id, created_on, dll)
 export interface AddAnalysesRequest {
   code?: string;
   description?: string;
@@ -20,8 +24,10 @@ export interface AddAnalysesRequest {
   is_active?: boolean;
 }
 
-// useAddAnalyses Hook
+// useAnalysesCreate Hook
 export const useAnalysesCreate = () => {
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: async (data: AddAnalysesRequest) => {
       // Ambil token dari cookies
@@ -35,6 +41,17 @@ export const useAnalysesCreate = () => {
       });
 
       return response.data;
+    },
+    onSuccess: () => {
+      // Invalidate cache untuk query 'analyses' agar daftar analisis terupdate
+      queryClient.invalidateQueries({ queryKey: ['analyses'] });
+      // Tampilkan notifikasi sukses
+      toast.success('Data analisis berhasil ditambahkan!');
+    },
+    onError: (error) => {
+      // Tampilkan notifikasi error
+      toast.error('Gagal menambahkan data analisis.');
+      console.error(error);
     },
   });
 };
