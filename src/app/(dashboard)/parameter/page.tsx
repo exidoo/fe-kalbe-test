@@ -1,4 +1,4 @@
-const ParamterPage = () => {
+const ParameterPage = () => {
   return (
     <main>
       <h1>Welcome To Dasboard Page</h1>
@@ -6,4 +6,4 @@ const ParamterPage = () => {
   );
 };
 
-export default ParamterPage;
+export default ParameterPage;
