@@ -38,7 +38,7 @@ export const useSampleTypes = () => {
       const token = Cookies.get('token');
 
       // GET data tipe sampel dari API
-      const response = await Api.get('/sample-types', {
+      const response = await Api.get('/samples', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

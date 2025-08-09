@@ -1,5 +1,6 @@
 import Sidebar from '@/containers/navigation/sidebar';
 import Header from '@/containers/navigation/header';
+import AnalysesManagement from '@/containers/analyses/analysesManagement';
 
 const AnalysesPage = () => {
   return (
@@ -10,6 +11,7 @@ const AnalysesPage = () => {
 
       <section className=" w-full flex flex-col  mx-auto">
         <Header />
+        <AnalysesManagement />
       </section>
     </main>
   );

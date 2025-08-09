@@ -28,7 +28,7 @@ export const useSampleTypesDelete = () => {
       const token = Cookies.get('token');
 
       // Kirim permintaan DELETE ke API
-      await Api.delete(`/sample-types/${id}`, {
+      await Api.delete(`/samples/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

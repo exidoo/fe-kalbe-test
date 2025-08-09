@@ -13,7 +13,7 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
 }
 
-export function UserTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
+export function AnalysesTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
   const [pageSize, setPageSize] = useState(10);
   const [pageIndex, setPageIndex] = useState(0);
 

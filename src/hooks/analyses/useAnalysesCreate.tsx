@@ -14,14 +14,12 @@ import toast from 'react-hot-toast';
 
 // interface untuk request data
 export interface AddAnalysesRequest {
-  code?: string;
-  description?: string;
-  lead_time?: number;
-  parameter_id: number;
-  method_id: number;
-  sample_type_id: number;
-  created_by_id?: number;
-  is_active?: boolean;
+  code?: string | null;
+  description?: string | null;
+  lead_time?: number | null;
+  parameter_id?: number | null;
+  method_id?: number | null;
+  sample_type_id?: number | null;
 }
 
 // useAnalysesCreate Hook

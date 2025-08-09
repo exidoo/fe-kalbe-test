@@ -48,7 +48,7 @@ export const useSampleTypesUpdate = () => {
 
       const { id, ...dataToUpdate } = updatedSampleType;
 
-      const response = await Api.put(`/sample-types/${id}`, dataToUpdate, {
+      const response = await Api.put(`/samples/${id}`, dataToUpdate, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

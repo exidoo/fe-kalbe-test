@@ -31,7 +31,7 @@ export const useSampleTypesCreate = () => {
     mutationFn: async (data: AddSampleTypeRequest) => {
       const token = Cookies.get('token');
 
-      const response = await Api.post('/sample-types', data, {
+      const response = await Api.post('/samples', data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

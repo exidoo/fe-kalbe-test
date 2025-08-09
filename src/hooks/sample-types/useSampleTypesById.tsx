@@ -38,7 +38,7 @@ export const useSampleTypesById = (id: number) => {
       const token = Cookies.get('token');
 
       // Ambil data tipe sampel berdasarkan ID dari API
-      const response = await Api.get(`/sample-types/${id}`, {
+      const response = await Api.get(`/samples/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
